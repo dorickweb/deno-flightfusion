@@ -1,21 +1,8 @@
 import React, { ReactElement, useCallback, useContext, useState } from "react";
-import { NavLink, NavLinks } from "../components/navigation/nav-links.tsx";
-
-export interface INavContext {
-    state?: INavState;
-    updateState: (partialState: Partial<INavState>) => void;
-    showHideNavLinks: () => void;
-    selectNavLink: (link: NavLinks) => void;
-}
-
-export interface INavState {
-    selectedTab: string;
-    showNavLinks: boolean;
-    selectedNavLink: NavLinks;
-}
+import { NavLinks } from "../types/navigation.ts";
+import { INavContext, INavState } from "./nav-context.ts";
 
 const NavContext = React.createContext({} as INavContext);
-
 export default NavContext;
 
 export function initializeNavContextProvider() {

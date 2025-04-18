@@ -1,18 +1,9 @@
 import React, { ReactElement, useCallback, useContext, useState } from "react";
 import { Plane } from "../routes/get-planes.ts";
-
-export interface IAppContext {
-    state?: IAppState;
-    updateState: (partialState: Partial<IAppState>) => void;
-    addPlanes: (plane: Plane) => void;
-}
-
-export interface IAppState {
-    airplanes: Plane[],
-}
+import { Tabs } from "../types/tabs.ts";
+import { IAppContext, IAppState } from "./context.ts";
 
 const AppContext = React.createContext({} as IAppContext);
-
 export default AppContext;
 
 export function initializeAppContextProvider() {
@@ -20,9 +11,10 @@ export function initializeAppContextProvider() {
     function AppContextProviderWrapper({ children }: { children: ReactElement; }) {
         const defaultState: IAppState =  {
             airplanes: [],
+            selectedTab: Tabs.ABOUT_TAB,
         };
 
-        const [state, setAllState] = useState(defaultState);
+        const [appState, setAllState] = useState(defaultState);
 
         const updateState = useCallback(
             (partialState: Partial<IAppState>) => {
@@ -35,14 +27,19 @@ export function initializeAppContextProvider() {
         );
 
         function addPlanes(plane: Plane): void {
-            const planesList = state.airplanes.concat(plane);
+            const planesList = appState.airplanes.concat(plane);
             updateState({ airplanes: planesList });
         }
 
+        function setSelectedTab(tab: Tabs): void {
+            updateState({ selectedTab: tab });
+        }
+
         const appContextValue: IAppContext = {
-            state,
+            appState,
             updateState,
             addPlanes,
+            setSelectedTab,
         };
 
         return (

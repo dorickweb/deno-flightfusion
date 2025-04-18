@@ -1,33 +1,34 @@
 import React from 'react';
 import { useNavContext } from "../../context/nav-context.tsx";
-
-export enum NavLinks {
-    Home = 'home',
-    Planes = 'planes',
-    Flights = 'flights',
-    About = 'about',
-}
-
-export interface NavLink {
-    name: string;
-    location: string,
-    selected: boolean,
-}
-
-export const navLinks = new Map<NavLinks, string>([
-    [NavLinks.Home, ''],
-]);
-
+import { NavLinks, navLinks } from "../../types/navigation.ts";
+import { Tabs } from "../../types/tabs.ts";
+import { useAppContext } from "../../context/app-context.tsx";
 
 export function NavigationLinks(): React.ReactElement {
+    const {
+        setSelectedTab,
+    } = useAppContext();
+
     const {
         state,
         showHideNavLinks,
     } = useNavContext();
 
+    const links = Object.keys(navLinks);
+    
+    function handleSelectedTab(tab: Tabs): void {
+        setSelectedTab(tab);
+    }
+
     return (
         <div>
-            {'Nav links'}
+            {links.map(link => (
+                <div
+                key={`${link}_key`}
+                onClick={() => handleSelectedTab(navLinks[link as NavLinks] as Tabs)}>
+                    {navLinks[link as NavLinks]}
+                </div>
+            ))}
         </div>
     )
 }
