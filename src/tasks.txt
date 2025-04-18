@@ -1,0 +1,8 @@
+1. Get a logo
+
+2. Decide app flow
+
+3. Create navigation
+
+4. create mobile first design
+

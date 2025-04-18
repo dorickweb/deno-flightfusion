@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+
+}
+
+.container {
+  min-width: 760px;
+  max-width: 100%;
+}
+
+.planeList li.plane {
+  padding: 12px;
+}
+
+.navigation {
+  display: flex;
+  padding: 8px;
+  width: 100%;
+  height: auto;
+  background-color: rgb(22, 16, 130);
+  color: rgb(255, 255, 255);
+}
+
+.nav-menu {
+  border-radius: 5px;
+  border: solid 1px rgb(255, 255, 255);
+  width:30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu .close {
+  font-size:18px;
+  font-weight: 600;
+}
+
+.nav-menu .hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.nav-menu .hamburger span {
+  height: 2px;
+  width: 20px;
+  background: white;
+  margin: 0;
+  transition: 0.4s;
+}
