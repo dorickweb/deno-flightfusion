@@ -59,20 +59,18 @@ export async function getAllAirports(): Promise<Airport[]> {
         const route = routes['getAirports'];
         // console.log(getAircraftId());
 
-        // if (!cachedResponse) {
-            const response = await fetch(`${route}?page=1&limit=100`, {
-                method: "GET",
-                headers: {
-                  "Authorization": `Bearer ${TOKEN}`,
-                },
-            });
-            const results: AirportResponse = response.status === 200
-                ? await response.json()
-                : [];
-        
-            const sortedAirportsData = (results?.data ?? []).sort(sortAirportsByCountry);
-            return sortedAirportsData ?? [];
-        // }
+        const response = await fetch(`${route}?page=1&limit=100`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${TOKEN}`,
+            },
+        });
+        const results: AirportResponse = response.status === 200
+            ? await response.json()
+            : [];
+    
+        const sortedAirportsData = (results?.data ?? []).sort(sortAirportsByCountry);
+        return sortedAirportsData ?? [];
     } catch (error) {
         console.error(`Error getting list of airports: ${error}`);
     }

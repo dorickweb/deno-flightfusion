@@ -5,6 +5,7 @@ import { initializeAppContextProvider, useAppContext } from "../context/app-cont
 import { Navigation } from "./navigation/navigation.tsx";
 import { Airports } from "./airports.tsx";
 import { Tabs } from "../types/tabs.ts";
+import { getAirlineInfo } from "../routes/get-airline.ts";
 
 export function Container(): React.ReactElement {
     const { 
@@ -13,23 +14,32 @@ export function Container(): React.ReactElement {
         }
     } = useAppContext();
 
+    React.useEffect(() => {
+        getAirlineInfo()
+            .then(results => {
+                console.log(results);
+            })
+    }, []);
+
     return (
         <div className="container">
             <Navigation />
             {/* <Header /> */}
             {selectedTab === Tabs.HOME_TAB && (
-                <div>{'View Home'}</div>
+                <div>{'View Your Home'}</div>
+                // <Home />
             )}
             {selectedTab === Tabs.ABOUT_TAB && (
-                <div>{'View ABOUT'}</div>
+                <div>{'View Your About'}</div>
+                // <About />
             )}
             {selectedTab === Tabs.PLANES_TAB && (
                 <div>{'View Planes'}</div>
                 // <Planes /> 
             )}
             {selectedTab === Tabs.FLIGHTS_TAB && (
-                <div>{'View FLIGHTS'}</div>
-                // Airports
+                <div>{'View Flights'}</div>
+                // <Airports />
             )}
         </div>
     )
