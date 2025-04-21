@@ -43,20 +43,18 @@ export async function getAllPlanes(): Promise<string[]> {
         const route = routes['getPlanes'];
         // console.log(getAircraftId());
 
-        // if (!cachedResponse) {
-            const response = await fetch(route, {
-                method: "GET",
-                headers: {
-                  "Authorization": `Bearer ${TOKEN}`,
-                },
-            });
-            const results: Plane[] = response.status === 200
-                ? await response.json()
-                : [];
-        
-            const mappedPlanes = mapPlaneNames(results);
-            return mappedPlanes;
-        // }
+        const response = await fetch(route, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${TOKEN}`,
+            },
+        });
+        const results: Plane[] = response.status === 200
+            ? await response.json()
+            : [];
+    
+        const mappedPlanes = mapPlaneNames(results);
+        return mappedPlanes;
     } catch (error) {
         console.error(`Error getting list of planes: ${error}`);
     }
