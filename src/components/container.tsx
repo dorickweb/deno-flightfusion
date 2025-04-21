@@ -5,7 +5,7 @@ import { initializeAppContextProvider, useAppContext } from "../context/app-cont
 import { Navigation } from "./navigation/navigation.tsx";
 import { Airports } from "./airports.tsx";
 import { Tabs } from "../types/tabs.ts";
-import { getAirlineInfo } from "../routes/get-airline.ts";
+import { getAirlineInfo } from "../routes/get-airline-info.ts";
 
 export function Container(): React.ReactElement {
     const { 
