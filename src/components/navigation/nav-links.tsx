@@ -21,9 +21,11 @@ export function NavigationLinks(): React.ReactElement {
     }
 
     return (
-        <div>
+        <div
+        className={`navLinks ${state?.showNavLinks ? ' open' : ''}`}>
             {links.map(link => (
                 <div
+                className={`navLink`}
                 key={`${link}_key`}
                 onClick={() => handleSelectedTab(navLinks[link as NavLinks] as Tabs)}>
                     {navLinks[link as NavLinks]}
