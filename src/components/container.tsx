@@ -14,12 +14,12 @@ export function Container(): React.ReactElement {
         }
     } = useAppContext();
 
-    React.useEffect(() => {
-        getAirlineInfo()
-            .then(results => {
-                console.log(results);
-            })
-    }, []);
+    // React.useEffect(() => {
+    //     getAirlineInfo()
+    //         .then(results => {
+    //             console.log(results);
+    //         })
+    // }, []);
 
     return (
         <div className="container">
