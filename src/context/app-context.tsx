@@ -1,7 +1,7 @@
 import React, { ReactElement, useCallback, useContext, useState } from "react";
-import { Plane } from "../routes/get-planes.ts";
 import { Tabs } from "../types/tabs.ts";
 import { IAppContext, IAppState } from "./context.ts";
+import { Plane } from "../types/plane.ts";
 
 const AppContext = React.createContext({} as IAppContext);
 export default AppContext;

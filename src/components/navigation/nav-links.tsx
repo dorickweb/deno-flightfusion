@@ -12,12 +12,18 @@ export function NavigationLinks(): React.ReactElement {
     const {
         state,
         showHideNavLinks,
+        handleRefresh,
     } = useNavContext();
 
     const links = Object.keys(navLinks);
     
     function handleSelectedTab(tab: Tabs): void {
-        setSelectedTab(tab);
+        if (tab === Tabs.REFRESH_TAB) {
+            handleRefresh();
+        }
+        else {
+            setSelectedTab(tab);
+        }
     }
 
     return (

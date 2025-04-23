@@ -6,6 +6,8 @@ import { Navigation } from "./navigation/navigation.tsx";
 import { Airports } from "./airports.tsx";
 import { Tabs } from "../types/tabs.ts";
 import { getAirlineInfo } from "../routes/get-airline-info.ts";
+import { getDistance } from "../utils/get-distance.ts";
+import { getFlightRoutes } from "../routes/get-flight-routes.ts";
 
 export function Container(): React.ReactElement {
     const { 
@@ -14,12 +16,12 @@ export function Container(): React.ReactElement {
         }
     } = useAppContext();
 
-    // React.useEffect(() => {
-    //     getAirlineInfo()
-    //         .then(results => {
-    //             console.log(results);
-    //         })
-    // }, []);
+    React.useEffect(() => {
+        getFlightRoutes()
+            .then(results => {
+                console.log(results);
+            })
+    }, []);
 
     return (
         <div className="container">
@@ -34,8 +36,7 @@ export function Container(): React.ReactElement {
                 // <About />
             )}
             {selectedTab === Tabs.PLANES_TAB && (
-                <div>{'View Planes'}</div>
-                // <Planes /> 
+                <Planes /> 
             )}
             {selectedTab === Tabs.FLIGHTS_TAB && (
                 <div>{'View Flights'}</div>

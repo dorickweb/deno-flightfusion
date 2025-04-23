@@ -5,6 +5,7 @@ export enum NavLinks {
     Planes = 'planes',
     Flights = 'flights',
     About = 'about',
+    Refresh = 'refresh',
 }
 
 export interface NavLink {
@@ -18,4 +19,5 @@ export const navLinks: Record<NavLinks, Tabs> = {
     [NavLinks.Planes]: Tabs.PLANES_TAB,
     [NavLinks.Flights]: Tabs.FLIGHTS_TAB,
     [NavLinks.About]: Tabs.ABOUT_TAB,
+    [NavLinks.Refresh]: Tabs.REFRESH_TAB
 };

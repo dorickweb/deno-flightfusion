@@ -1,40 +1,12 @@
 import { TOKEN } from "../token.ts";
 import { formatNumber } from "../utils/formatter.ts";
 import { routes } from "./routes.ts";
-import { getAircraftId } from "../utils/aircraft.ts";
-
-export interface Plane {
-    _id?: string;
-    model?: string;
-    manufacturer?: string;
-    yearMade?: number;
-    capacity?:  number;
-    registrationNumber?: string;
-    maxCruiseSpeed?: number;
-    maxRange?: number;
-    fuelCapacity?: number;
-    cost?: number;
-}
-
-function sortPlanesByPrice(
-    a: Plane,
-    b: Plane,
-){
-    if ((a.cost ?? 0) < (b.cost ?? 0)) {
-        return -1;
-    }
-
-    if ((a.cost ?? 0) > (b.cost ?? 0)) {
-        return 1;
-    }
-
-    return 0;
-};
+import { Plane } from "../types/plane.ts";
+import { sortPlanesByPrice } from "../utils/sort.ts";
 
 export function mapPlaneNames(planes: Plane[]): string[] {
-    const sortedPlanes = planes.sort(sortPlanesByPrice);
-    return sortedPlanes.map(plane => (
-        `${plane.manufacturer ?? ''} ${plane.model ?? ''}: $${formatNumber(plane.cost ?? 0)}`
+    return planes.sort(sortPlanesByPrice).map(plane => (
+        `${plane.manufacturer ?? ''} ${plane.model ?? ''}: $${formatNumber(plane.cost ?? 0)} - ${plane._id ?? ''}`
     )).filter(plane => !(plane.trim() === ''));
 }
 

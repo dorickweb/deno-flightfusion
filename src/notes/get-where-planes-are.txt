@@ -1,0 +1,26 @@
+-- to get where plane(s) are, the following will need to be coded/built:
+
+get airline info:
+
+from airline info: 
+    const airline = getAirlineInfo();
+
+        get all plane IDs:
+            iterate over  'airline.aircraft' and get all '_id'
+
+after getting all planes, will then see where each plane is and its status: 
+    {
+        _id: ####,
+        
+    }
+    
+
+
+-- Refresh:
+
+    hit airline information endpoint....
+        with respones, iterate over flightRoutes property
+            from each one, get the last item in 'flightStatusUpdates' array...
+                 if it is not status of 'landed', add this '_id' to an array of flights to check...
+            once you have this array iterate over it and make API call to Flight Route by ID (https://api.flightfusion.io/api/flightRoute/680695b558581dd41606535e)
+                this should hopefully update the airline info with current flight(s) data
