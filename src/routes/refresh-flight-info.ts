@@ -2,6 +2,7 @@ import { TOKEN } from "../token.ts";
 import { routes } from "./routes.ts";
 import { getAircraftId } from "../utils/aircraft.ts";
 import { AirLineInfo, FlightRoute } from "../types/flight.ts";
+import { getFlightRoutes } from "./get-flight-routes.ts";
 
 export async function refreshFlightInfo(): Promise<void> {
     try {
@@ -19,8 +20,7 @@ export async function refreshFlightInfo(): Promise<void> {
         if(results) {
             const flightsToUpdate = getFlightsToUpdate(results);
             if(flightsToUpdate?.length > 0) {
-                // update refresh route
-                
+                await getFlightRoutes();
             }
         }
 
