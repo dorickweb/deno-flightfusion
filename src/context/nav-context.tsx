@@ -1,6 +1,7 @@
 import React, { ReactElement, useCallback, useContext, useState } from "react";
 import { NavLinks } from "../types/navigation.ts";
 import { INavContext, INavState } from "./nav-context.ts";
+import { refreshFlightInfo } from "../routes/refresh-flight-info.ts";
 
 const NavContext = React.createContext({} as INavContext);
 export default NavContext;
@@ -32,6 +33,13 @@ export function initializeNavContextProvider() {
             })
         }
         
+        async function handleRefresh(): Promise<void> {
+            await refreshFlightInfo();
+            updateState({
+                showNavLinks: false,
+            })
+        }
+        
         function selectNavLink(link: NavLinks): void {
             updateState({
                 selectedNavLink: link
@@ -41,6 +49,7 @@ export function initializeNavContextProvider() {
         const appContextValue: INavContext = {
             state,
             updateState,
+            handleRefresh,
             showHideNavLinks,
             selectNavLink,
         };

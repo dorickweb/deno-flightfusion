@@ -3,4 +3,5 @@ export enum Tabs {
     PLANES_TAB = 'planes',
     FLIGHTS_TAB = 'flights',
     ABOUT_TAB = 'about',
+    REFRESH_TAB = 'refresh',
 }

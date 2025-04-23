@@ -84,6 +84,6 @@ body {
 }
 
 .navLinks.open {
-  height: 180px;
+  height: 235px;
   transition: height .5s ease;
 }
