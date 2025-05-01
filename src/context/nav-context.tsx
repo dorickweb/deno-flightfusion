@@ -12,7 +12,7 @@ export function initializeNavContextProvider() {
         const defaultState: INavState =  {
             selectedTab: '',
             showNavLinks: false,
-            selectedNavLink: NavLinks.About,
+            selectedNavLink: NavLinks.Home,
         };
 
         const [state, setAllState] = useState(defaultState);

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { getContent } from '../resources/content.ts';
-import { Airport, getAllAirports } from "../routes/get-airports.ts";
+import { getAllAirports } from "../routes/get-airports.ts";
+import { Airport } from "../types/airport.ts";
 
 export function Airports(): React.ReactElement {
     const [airports, setAirports] = React.useState<Airport[]>([]);

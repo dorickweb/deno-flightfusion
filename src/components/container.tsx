@@ -1,13 +1,16 @@
 import React from "react";
-import { Header } from "./header.tsx";
 import { Planes } from "./planes.tsx";
-import { initializeAppContextProvider, useAppContext } from "../context/app-context.tsx";
+import { useAppContext } from "../context/app-context.tsx";
 import { Navigation } from "./navigation/navigation.tsx";
 import { Airports } from "./airports.tsx";
 import { Tabs } from "../types/tabs.ts";
+import { Home } from "./home.tsx";
+import { About } from "./about.tsx";
 import { getAirlineInfo } from "../routes/get-airline-info.ts";
 import { getDistance } from "../utils/get-distance.ts";
 import { getFlightRoutes } from "../routes/get-flight-routes.ts";
+import { Schedule } from "./schedule.tsx";
+import { Info } from "./info.tsx";
 
 export function Container(): React.ReactElement {
     const { 
@@ -28,19 +31,22 @@ export function Container(): React.ReactElement {
             <Navigation />
             {/* <Header /> */}
             {selectedTab === Tabs.HOME_TAB && (
-                <div>{'View Your Home'}</div>
-                // <Home />
+                <Home />
             )}
             {selectedTab === Tabs.ABOUT_TAB && (
-                <div>{'View Your About'}</div>
-                // <About />
+                <About />
             )}
             {selectedTab === Tabs.PLANES_TAB && (
                 <Planes /> 
             )}
-            {selectedTab === Tabs.FLIGHTS_TAB && (
-                <div>{'View Flights'}</div>
-                // <Airports />
+            {selectedTab === Tabs.AIRPORTS && (
+                <Airports />
+            )}
+            {selectedTab === Tabs.INFO && (
+                <Info />
+            )}
+            {selectedTab === Tabs.SCHEDULE && (
+                <Schedule />
             )}
         </div>
     )

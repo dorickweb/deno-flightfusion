@@ -84,6 +84,15 @@ body {
 }
 
 .navLinks.open {
-  height: 235px;
+  height: 335px;
   transition: height .5s ease;
+}
+
+.about, .home, .info, .planes, .schedule, .airports { 
+  padding: 20px;
+}
+
+.about h2 {
+  font-size: 24px;
+  margin: 0 0 20px 0;
 }
