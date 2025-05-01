@@ -11,7 +11,7 @@ export function initializeAppContextProvider() {
     function AppContextProviderWrapper({ children }: { children: ReactElement; }) {
         const defaultState: IAppState =  {
             airplanes: [],
-            selectedTab: Tabs.ABOUT_TAB,
+            selectedTab: Tabs.HOME_TAB,
         };
 
         const [appState, setAllState] = useState(defaultState);

@@ -1,4 +1,4 @@
-import { TOKEN } from "../token.ts";
+import { TOKEN } from "../constants.ts";
 
 export interface AIRLINE {
     airlineId: string;

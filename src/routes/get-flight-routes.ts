@@ -1,4 +1,4 @@
-import { TOKEN } from "../token.ts";
+import { TOKEN } from "../constants.ts";
 import { routes } from "./routes.ts";
 import { FlightRoute } from "../types/flight.ts";
 

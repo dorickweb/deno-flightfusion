@@ -1,4 +1,4 @@
-import { TOKEN } from "../token.ts";
+import { TOKEN } from "../constants.ts";
 import { formatNumber } from "../utils/formatter.ts";
 import { routes } from "./routes.ts";
 import { Plane } from "../types/plane.ts";

@@ -1,7 +1,9 @@
 export enum Tabs {
     HOME_TAB = 'home',
-    PLANES_TAB = 'planes',
-    FLIGHTS_TAB = 'flights',
     ABOUT_TAB = 'about',
+    INFO = 'info',
+    PLANES_TAB = 'planes',
+    SCHEDULE = 'schedule',
+    AIRPORTS = 'airports',
     REFRESH_TAB = 'refresh',
 }
